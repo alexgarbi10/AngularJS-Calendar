@@ -35,6 +35,11 @@ input.ng-valid.ng-dirty
   border: 1px solid green;
 }
 
+span {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;

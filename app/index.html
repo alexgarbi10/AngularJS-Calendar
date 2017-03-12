@@ -24,10 +24,24 @@
   <div class="title">AngularJS Prosoft Nearshore Exercise App: v<span app-version></span></div>
 
   <div ng-controller="FormController" class="form">
-    <form novalidate name="form" class="simple-form">
+    <form novalidate name="form" class="simple-form" ng-show="!show">
       <label>Start Date: <input type="date" name="start" ng-model="calendar.start" placeholder="MM/DD/YYYY" class="input" required /></label><br />
-      <label>Number of days: <input type="text" name="number" ng-model="calendar.number" class="input" min="1" required /></label><br />
-      <label>Country Code: <input type="text" name="code" ng-model="calendar.code" class="input" maxlength="6" required /></label><br />
+      <div ng-show="form.start.$error">
+        <span ng-show="form.start.$error.number">The value is not a valid date.</span>
+        <span ng-show="form.start.$error.required && form.start.$dirty">The value is required.</span>
+      </div>
+      <label>Number of days: <input type="text" name="number" ng-model="calendar.number" number class="input" min="1" required /></label><br />
+      <div ng-show="form.start.$error">
+        <span ng-show="form.number.$error.number">The value is not a valid number.</span>
+        <span ng-show="form.number.$error.min">The value must be an integer greater than 1.</span>
+        <span ng-show="form.number.$error.required && form.number.$dirty">The value is required.</span>
+      </div>
+      <label>Country Code: <input type="text" name="code" ng-model="calendar.code" code class="input" maxlength="6" required /></label><br />
+      <div ng-show="form.start.$error">
+        <span ng-show="form.code.$error.code">The value is not a valid code.</span>
+        <span ng-show="form.code.$error.maxlength">The value must not exceed 10 chars.</span>
+        <span ng-show="form.code.$error.required && form.code.$dirty">The value is required.</span>
+      </div>
       <br />
       <input type="button" ng-click="reset(); form.$setPristine();" value="Reset" />
       <input type="button" ng-click="display(calendar)" ng-disabled="form.$invalid" value="Display" />
@@ -44,5 +58,6 @@
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
+  <script src="components/directives.js"></script>
 </body>
 </html>
