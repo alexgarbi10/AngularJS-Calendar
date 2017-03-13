@@ -4,7 +4,6 @@ function renderHTML(calendar, number, holidays) {
   var months = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
   var DAYS_OF_WEEK = 7;
   var DAYS_OF_MONTH = 31;
-  var TOTAL = 35;
   var TR_start = '<tr>';
   var TR_end = '</tr>';
   var TD_start = '<td width="30"><center>';
@@ -17,6 +16,7 @@ function renderHTML(calendar, number, holidays) {
 
   // Repeat until the correct number of days are rendered
   while (number != 0) {
+    var TOTAL = 35;
     var year = calendar.getFullYear();
     var month = calendar.getMonth();
     calendar.setDate(1);
@@ -49,9 +49,20 @@ function renderHTML(calendar, number, holidays) {
         if (day == 0) cal += TR_start;
 
         if (day != DAYS_OF_WEEK) {
+          var holiday = false;
           var date  = calendar.getDate();
-          if (day == 0 || day == 6) cal += TD_start_weekend + date + TD_end;
-          else cal += TD_start_weekdays + date + TD_end;
+
+          for (aux = 0; aux < holidays.length; aux++) {
+            if (holidays[aux].getDate() == calendar.getDate() &&
+              holidays[aux].getMonth() == calendar.getMonth() &&
+              holidays[aux].getFullYear() == calendar.getFullYear()) holiday = true;
+          }
+
+          if (holiday) cal += TD_start_holidays + date + TD_end;
+          else {
+            if (day == 0 || day == 6) cal += TD_start_weekend + date + TD_end;
+            else cal += TD_start_weekdays + date + TD_end;
+          }
           number--;
           TOTAL--;
         };

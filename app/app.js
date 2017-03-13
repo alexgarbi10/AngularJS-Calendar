@@ -27,8 +27,8 @@ angular.module('myApp', [
       url: 'https://holidayapi.com/v1/holidays?key=cc6dd9c3-fb04-41a1-8f36-db16d7d5a153'+year+country
     }).then(function successCallback(response) {
       $scope.holidays = response.data.holidays;
-      console.log($scope.holidays);
-      $scope.html = $sce.trustAsHtml(renderHTML(calendar.start, calendar.number, []));
+      var array = Object.keys($scope.holidays).map(key => new Date($scope.holidays[key][0].date));
+      $scope.html = $sce.trustAsHtml(renderHTML(calendar.start, calendar.number, array));
       $scope.show = true;
     }, function errorCallback(error) {
       console.log(error);
