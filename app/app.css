@@ -63,3 +63,19 @@ span {
   content: "|";
   padding-right: 0.3em;
 }
+
+.weekdays {
+  background-color: green;
+}
+
+.weekend {
+  background-color: yellow;
+}
+
+.holidays {
+  background-color: orange;
+}
+
+.invalid {
+  background-color: #D3D3D3;
+}

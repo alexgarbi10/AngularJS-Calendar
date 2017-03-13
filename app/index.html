@@ -24,6 +24,11 @@
   <div class="title">AngularJS Prosoft Nearshore Exercise App: v<span app-version></span></div>
 
   <div ng-controller="FormController" class="form">
+    <div ng-show="show">
+      <div ng-bind-html="html"></div>
+      <input type="button" ng-click="reset(); form.$setPristine();" value="Go Back" />
+    </div>
+
     <form novalidate name="form" class="simple-form" ng-show="!show">
       <label>Start Date: <input type="date" name="start" ng-model="calendar.start" placeholder="MM/DD/YYYY" class="input" required /></label><br />
       <div ng-show="form.start.$error">
@@ -46,7 +51,6 @@
       <input type="button" ng-click="reset(); form.$setPristine();" value="Reset" />
       <input type="button" ng-click="display(calendar)" ng-disabled="form.$invalid" value="Display" />
     </form>
-    <pre>master = {{master | json}}</pre>
   </div>
 
   <!-- In production use:
@@ -59,5 +63,6 @@
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
   <script src="components/directives.js"></script>
+  <script src="components/calendar.js"></script>
 </body>
 </html>
