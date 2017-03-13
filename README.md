@@ -19,8 +19,8 @@ and its package manager (npm) installed. You can get them from https://nodejs.or
 Clone the `angular-prosoft-exercise` repository using git:
 
 ```
-git clone [git]
-cd angular-prosoft-exercise
+git clone https://github.com/alexgarbi10/AngularJS-Calendar.git
+cd AngularJS-Calendar
 ```
 
 ### Install Dependencies
@@ -44,6 +44,8 @@ this server is:
 npm start
 ```
 
-Now browse to the app at [`localhost:8000/index.html`][local-app-url].
+Now browse to the app at [`localhost:8000/index.html`].
 
 ### Additional information
+- Input type date doesn't work on Firefox browser.
+- Holidays don't have rollover labels.
