@@ -27,7 +27,7 @@
     "postupdate-deps": "bower update",
 
     "prestart": "rm -rf node_modules && npm install",
-    "start": "http-server -a localhost -p 8000 -c-1 ./app",
+    "start": "npm start",
 
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
