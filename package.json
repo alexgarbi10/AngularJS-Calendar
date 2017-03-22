@@ -5,7 +5,7 @@
   "engines": {
     "node": "4.4.7",
     "npm": "4.1.2"
-  }
+  },
   "description": "A starter project for AngularJS",
   "repository": "https://github.com/angular/angular-seed",
   "license": "MIT",
