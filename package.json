@@ -21,12 +21,12 @@
     "protractor": "^4.0.9"
   },
   "scripts": {
-    "postinstall": "npm install bower && bower install",
+    "postinstall": "npm install bower && bower install && cp -R bower_components app",
 
     "update-deps": "npm update",
     "postupdate-deps": "bower update",
 
-    "prestart": "npm install",
+    "prestart": "rm -rf node_modules && npm install",
     "start": "http-server -a localhost -p 8000 -c-1 ./app",
 
     "pretest": "npm install",
