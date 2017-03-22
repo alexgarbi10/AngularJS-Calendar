@@ -2,6 +2,10 @@
   "name": "angular-seed",
   "private": true,
   "version": "0.0.0",
+  "engines": {
+    "node": "4.4.7",
+    "npm": "4.1.2"
+  }
   "description": "A starter project for AngularJS",
   "repository": "https://github.com/angular/angular-seed",
   "license": "MIT",
@@ -17,7 +21,7 @@
     "protractor": "^4.0.9"
   },
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "npm install bower && bower install",
 
     "update-deps": "npm update",
     "postupdate-deps": "bower update",
